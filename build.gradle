@@ -1,0 +1,26 @@
+allprojects {
+  
+  repositories {
+    mavenCentral()
+  }
+  
+}
+
+subprojects {
+  apply plugin: "java"
+  apply plugin: "eclipse"
+
+  dependencies {
+    testCompile 'junit:junit:4.12',
+    'org.mockito:mockito-core:2.+'
+  }
+
+}
+
+task showMeCache << {
+  configuration.compile.each { println it }
+}
+
+task wrapper(type: Wrapper){
+  gradleVersion='4.10.3'
+}
