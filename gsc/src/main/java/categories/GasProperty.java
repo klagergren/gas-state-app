@@ -8,6 +8,7 @@ public enum GasProperty {
 	ENTROPY,
 	ENTHALPY,
 	SPEED,
+	ENERGY,
 	MACH_NUMBER,
 	OTHER;
 	// @formatter:on
