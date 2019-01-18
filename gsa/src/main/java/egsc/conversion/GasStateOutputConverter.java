@@ -1,9 +1,9 @@
-package conversion;
+package egsc.conversion;
 
 import org.springframework.stereotype.Component;
 
-import gasstate.GasState;
-import io.GasStateOutput;
+import egsc.gasstate.GasState;
+import egsc.io.GasStateOutput;
 
 @Component
 public class GasStateOutputConverter {

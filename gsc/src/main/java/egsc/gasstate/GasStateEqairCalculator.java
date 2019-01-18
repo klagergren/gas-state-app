@@ -1,4 +1,4 @@
-package gasstate;
+package egsc.gasstate;
 
 public class GasStateEqairCalculator {
 	  double t,r,p,e,s,h,a;

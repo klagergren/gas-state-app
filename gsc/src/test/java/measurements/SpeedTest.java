@@ -2,6 +2,7 @@ package measurements;
 
 import org.junit.Test;
 
+import egsc.measurements.Speed;
 import testutils.BasicTest;
 
 public class SpeedTest extends BasicTest {

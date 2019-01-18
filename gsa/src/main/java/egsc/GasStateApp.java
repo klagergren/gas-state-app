@@ -1,4 +1,4 @@
-package gsa;
+package egsc;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"gsa","gsc.gasstate"})
+@ComponentScan({"egsc", "egsc.gasstate"})
 @SpringBootApplication
 public class GasStateApp {
 

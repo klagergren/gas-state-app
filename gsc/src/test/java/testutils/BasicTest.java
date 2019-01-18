@@ -8,12 +8,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import gasstate.GasState;
-import gasstate.GasStateCalculator;
-import measurements.Density;
-import measurements.Energy;
-import measurements.Pressure;
-import measurements.Temperature;
+import egsc.gasstate.GasState;
+import egsc.gasstate.GasStateCalculator;
+import egsc.measurements.Density;
+import egsc.measurements.Energy;
+import egsc.measurements.Pressure;
+import egsc.measurements.Temperature;
 
 public class BasicTest {
 

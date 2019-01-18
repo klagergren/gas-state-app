@@ -1,10 +1,10 @@
-package gasstate;
+package egsc.gasstate;
 
-import measurements.Density;
-import measurements.Energy;
-import measurements.Entropy;
-import measurements.Pressure;
-import measurements.Temperature;
+import egsc.measurements.Density;
+import egsc.measurements.Energy;
+import egsc.measurements.Entropy;
+import egsc.measurements.Pressure;
+import egsc.measurements.Temperature;
 
 public class GasStateCalculator {
 	

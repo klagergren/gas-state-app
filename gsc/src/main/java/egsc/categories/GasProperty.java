@@ -1,4 +1,4 @@
-package categories;
+package egsc.categories;
 
 public enum GasProperty {
 	// @formatter:off

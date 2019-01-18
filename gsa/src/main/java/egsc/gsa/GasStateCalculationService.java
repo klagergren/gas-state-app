@@ -1,19 +1,19 @@
-package gsa;
+package egsc.gsa;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import categories.GasProperty;
-import conversion.GasStateOutputConverter;
-import gasstate.GasState;
-import gasstate.GasStateCalculator;
-import io.GasStateInput;
-import io.GasStateOutput;
-import measurements.Density;
-import measurements.Energy;
-import measurements.Entropy;
-import measurements.Pressure;
-import measurements.Temperature;
+import egsc.categories.GasProperty;
+import egsc.conversion.GasStateOutputConverter;
+import egsc.gasstate.GasState;
+import egsc.gasstate.GasStateCalculator;
+import egsc.io.GasStateInput;
+import egsc.io.GasStateOutput;
+import egsc.measurements.Density;
+import egsc.measurements.Energy;
+import egsc.measurements.Entropy;
+import egsc.measurements.Pressure;
+import egsc.measurements.Temperature;
 
 @Service
 public class GasStateCalculationService {

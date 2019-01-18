@@ -1,4 +1,4 @@
-package io;
+package egsc.io;
 
 public class GasStateInput {
 

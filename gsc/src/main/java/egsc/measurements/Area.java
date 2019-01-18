@@ -1,4 +1,4 @@
-package measurements;
+package egsc.measurements;
 
 public class Area {
 

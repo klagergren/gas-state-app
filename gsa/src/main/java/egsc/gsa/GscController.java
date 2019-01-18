@@ -1,11 +1,11 @@
-package gsa;
+package egsc.gsa;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.GasStateInput;
-import io.GasStateOutput;
+import egsc.io.GasStateInput;
+import egsc.io.GasStateOutput;
 
 @RestController
 public class GscController {
