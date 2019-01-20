@@ -4,4 +4,7 @@ gradle/
 .classpath
 .settings/
 .gradle/
-.project
+.project/
+*.class
+*.project
+*.classpath

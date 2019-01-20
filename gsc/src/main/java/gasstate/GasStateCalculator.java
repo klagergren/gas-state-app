@@ -24,6 +24,11 @@ public class GasStateCalculator {
 		return gasState;
 	}
 	
+//	public GasState calculateGasState(Temperature temperature, Pressure pressure)
+//	{
+//		return calculateGasState(pressure, temperature);
+//	}
+	
 	public GasState calculateGasState(Pressure pressure, Entropy entropy) { 
 		GasStateEqairCalculator eqairCalculator = new GasStateEqairCalculator();
 		eqairCalculator.p = pressure.inPascals();
@@ -38,6 +43,11 @@ public class GasStateCalculator {
 		GasState gasState = new GasState(eqairCalculator);
 		return gasState;
 	}
+	
+//	public GasState calculateGasState(Entropy entropy, Pressure pressure)
+//	{
+//		return calculateGasState(pressure, entropy);
+//	}
 	
 	public GasState calculateGasState(Energy energy, Density density) { 
 		GasStateEqairCalculator eqairCalculator = new GasStateEqairCalculator();
@@ -55,6 +65,11 @@ public class GasStateCalculator {
 		return gasState;
 	}
 	
+//	public GasState calculateGasState(Density density, Energy energy)
+//	{
+//		return calculateGasState(energy, density);
+//	}
+	
 	public GasState calculateGasState(Pressure pressure, Density density) { 
 		GasStateEqairCalculator eqairCalculator = new GasStateEqairCalculator();
 		eqairCalculator.p = pressure.inPascals();
@@ -71,6 +86,11 @@ public class GasStateCalculator {
 		return gasState;
 	}
 	
+//	public GasState calculateGasState(Density density, Pressure pressure)
+//	{
+//		return calculateGasState(pressure, density);
+//	}
+//	
 	public GasState calculateGasState(Entropy entropy, Energy enthalpy) { 
 		GasStateEqairCalculator eqairCalculator = new GasStateEqairCalculator();
 		eqairCalculator.s = entropy.inJoulesPerKelvin();
@@ -84,5 +104,10 @@ public class GasStateCalculator {
 		GasState gasState = new GasState(eqairCalculator);
 		return gasState;
 	}
+	
+//	public GasState calculateGasState(Energy enthalpy, Entropy entropy)
+//	{
+//		return calculateGasState(entropy, enthalpy);
+//	}
 
 }
