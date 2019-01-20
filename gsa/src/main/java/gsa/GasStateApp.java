@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan({"gsa","gsc.gasstate"})
+@ComponentScan({"gsa","conversion"})
 @SpringBootApplication
 public class GasStateApp {
 
