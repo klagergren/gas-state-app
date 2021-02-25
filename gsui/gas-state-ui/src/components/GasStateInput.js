@@ -1,9 +1,9 @@
-import { MenuItem, TextField } from '@material-ui/core'
-import Select from '@material-ui/core/Select'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import {makeStyles} from '@material-ui/core/styles'
-//import MenuItem from '@material-ui/core/MenuItem'
+import { MenuItem, TextField } from '@material-ui/core';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import { makeStyles } from '@material-ui/core/styles';
+// import MenuItem from '@material-ui/core/MenuItem'
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -23,49 +23,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const gasPropertyOptions = [
-  'Pressure', 
-  'Temperature',
-  'Energy',
-  'Enthalpy',
-]
+const hello = '';
 
-const distanceUnits = [
-  'meters',
-  'cm',
-  'mm',
-  'inches',
-]
+const gasPropertyOptions = ['Pressure', 'Temperature', 'Energy', 'Enthalpy'];
+
+const distanceUnits = ['meters', 'cm', 'mm', 'inches'];
 
 const GasStateInput = () => {
   const classes = useStyles();
-    return (
-        <div>
-            <FormControl className={classes.formControl}>
-              <InputLabel>Property Type 1</InputLabel>
-                <Select>
-                  {gasPropertyOptions.map((gasProperty) => (
-                    <MenuItem key={gasProperty} value={gasProperty}>
-                      {gasProperty}
-                    </MenuItem>
-                  ))}
-                </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-            <TextField id="outlined-basic" label="First Property" variant="outlined"></TextField>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel>Units</InputLabel>
-              <Select>
-                {distanceUnits.map((unit) => (
-                  <MenuItem key={unit} value={unit}>
-                    {unit}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-        </div>
-    )
-}
+  return (
+    <div>
+      <FormControl className={classes.formControl}>
+        <InputLabel>Property Type 1</InputLabel>
+        <Select defaultValue="">
+          {gasPropertyOptions.map((gasProperty) => (
+            <MenuItem key={gasProperty} value={gasProperty}>
+              {gasProperty}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <TextField
+          id="outlined-basic"
+          label="First Property"
+          variant="outlined"
+        />
+      </FormControl>
+      <FormControl className={classes.formControl}>
+        <InputLabel>Units</InputLabel>
+        <Select defaultValue="">
+          {distanceUnits.map((unit) => (
+            <MenuItem key={unit} value={unit}>
+              {unit}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </div>
+  );
+};
 
-export default GasStateInput
+export default GasStateInput;
