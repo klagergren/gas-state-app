@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <GasStateInput />
-      <GasStateInput />
+      <GasStateInput gasPropertyType="Temperature (K)" />
+      <GasStateInput gasPropertyType="Pressure (Pa)" />
       <Button
         variant="contained"
         color="primary"
