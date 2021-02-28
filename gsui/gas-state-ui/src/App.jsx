@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Select from '@material-ui/core/Select';
 import Header from './components/Header';
 import GasStateInput from './components/GasStateInput';
+import GasStateTable from './components/GasStateTable';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       >
         Calculate
       </Button>
+      <GasStateTable />
     </div>
   );
 }
