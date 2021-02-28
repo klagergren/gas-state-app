@@ -14,16 +14,42 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(
+  index,
+  temp,
+  pressure,
+  density,
+  entropy,
+  enthalpy,
+  soundSpeed,
+  energy
+) {
+  return {
+    index,
+    temp,
+    pressure,
+    density,
+    entropy,
+    enthalpy,
+    soundSpeed,
+    energy,
+  };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData(1, 303, 50349, 0.2, 5, 21.3, 5, 6),
+  createData(2, 303, 50349, 0.2, 5, 21.3, 5, 6),
+];
+
+const rowHeaders = [
+  'Index',
+  'Temperature',
+  'Pressure',
+  'Density',
+  'Entropy',
+  'Enthalpy',
+  'Sound Speed',
+  'Energy',
 ];
 
 function GasStateTable() {
@@ -34,23 +60,24 @@ function GasStateTable() {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Dessert (100g serving)</TableCell>
-              <TableCell align="right">Calories</TableCell>
-              <TableCell align="right">Fat&nbsp;(g)</TableCell>
-              <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-              <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              {rowHeaders.map((rowHeader) => (
+                <TableCell align="right">{rowHeader}</TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
+              <TableRow key={row.index}>
+                <TableCell component="th" scope="row" align="center">
+                  {row.index}
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">{row.temp}</TableCell>
+                <TableCell align="right">{row.pressure}</TableCell>
+                <TableCell align="right">{row.density}</TableCell>
+                <TableCell align="right">{row.entropy}</TableCell>
+                <TableCell align="right">{row.enthalpy}</TableCell>
+                <TableCell align="right">{row.soundSpeed}</TableCell>
+                <TableCell align="right">{row.energy}</TableCell>
               </TableRow>
             ))}
           </TableBody>
