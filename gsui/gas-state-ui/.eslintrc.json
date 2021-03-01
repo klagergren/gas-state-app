@@ -5,6 +5,7 @@
     "prettier/prettier": "warn",
     "no-unused-vars":"warn",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-param-reassign":"warn"
   }
 }

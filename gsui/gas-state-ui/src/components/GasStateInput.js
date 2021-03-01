@@ -2,6 +2,8 @@ import { TextField } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateTemperature } from '../redux/slices/temperatureSlice';
 
 // import MenuItem from '@material-ui/core/MenuItem'
 
@@ -25,6 +27,14 @@ const useStyles = makeStyles((theme) => ({
 
 const GasStateInput = ({ gasPropertyType }) => {
   const classes = useStyles();
+
+  const inputValue = useSelector((state) => state.temperature.value);
+  const dispatch = useDispatch();
+
+  // onChange(e) {
+  //   dispatch(updateTemperature(inputValue)
+  // }
+
   return (
     <div>
       <FormControl className={classes.formControl}>
@@ -32,6 +42,8 @@ const GasStateInput = ({ gasPropertyType }) => {
           id="outlined-basic"
           label={gasPropertyType}
           variant="outlined"
+          value={inputValue}
+          onChange={() => dispatch(updateTemperature(inputValue))}
         />
       </FormControl>
     </div>
