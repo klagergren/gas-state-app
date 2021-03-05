@@ -10,7 +10,7 @@ function App() {
     <div className="container">
       <Header />
       <GasStateInput gasPropertyType="Temperature (K)" />
-      <GasStateInput gasPropertyType="Pressure (Pa)" />
+      {/* <GasStateInput gasPropertyType="Pressure (Pa)" /> */}
       <Button
         variant="contained"
         color="primary"

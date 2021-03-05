@@ -7,7 +7,8 @@ export const temperatureSlice = createSlice({
   },
   reducers: {
     updateTemperature: (state, action) => {
-      state.temperature = action.payload;
+      console.log(action.payload);
+      state.value = action.payload;
     },
   },
 });

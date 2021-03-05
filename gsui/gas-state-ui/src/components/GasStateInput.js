@@ -28,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
 const GasStateInput = ({ gasPropertyType }) => {
   const classes = useStyles();
 
-  const inputValue = useSelector((state) => state.temperature.value);
+  const inputValue = useSelector((state) => state.value);
   const dispatch = useDispatch();
 
-  // onChange(e) {
-  //   dispatch(updateTemperature(inputValue)
-  // }
+  function handleChange(e) {
+    console.log('hello', e.target.value);
+    dispatch(updateTemperature(e.target.value));
+  }
 
   return (
     <div>
@@ -43,7 +44,7 @@ const GasStateInput = ({ gasPropertyType }) => {
           label={gasPropertyType}
           variant="outlined"
           value={inputValue}
-          onChange={() => dispatch(updateTemperature(inputValue))}
+          onChange={handleChange}
         />
       </FormControl>
     </div>
