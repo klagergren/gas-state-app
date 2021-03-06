@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInput } from '../redux/slices/inputSlice';
 
-// import MenuItem from '@material-ui/core/MenuItem'
-
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -25,15 +23,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GasStateInput = ({ gasPropertyType }) => {
+const GasStateInput = ({ gasPropertyTypeId, gasPropertyTypeDisplay }) => {
   const classes = useStyles();
 
-  const inputValue = useSelector((state) => state.value);
+  const inputValue = useSelector(
+    (state) => state.input.inputs[gasPropertyTypeId]
+  );
   const dispatch = useDispatch();
 
   function handleChange(e) {
-    console.log('hello', e.target.value);
-    dispatch(updateInput(e.target.value));
+    const payload = {
+      inputType: gasPropertyTypeId,
+      inputValue: e.target.value,
+    };
+    dispatch(updateInput(payload));
   }
 
   return (
@@ -41,7 +44,7 @@ const GasStateInput = ({ gasPropertyType }) => {
       <FormControl className={classes.formControl}>
         <TextField
           id="outlined-basic"
-          label={gasPropertyType}
+          label={gasPropertyTypeDisplay}
           variant="outlined"
           value={inputValue}
           onChange={handleChange}
@@ -52,7 +55,8 @@ const GasStateInput = ({ gasPropertyType }) => {
 };
 
 GasStateInput.propTypes = {
-  gasPropertyType: PropTypes.string.isRequired,
+  gasPropertyTypeId: PropTypes.string.isRequired,
+  gasPropertyTypeDisplay: PropTypes.string.isRequired,
 };
 
 export default GasStateInput;

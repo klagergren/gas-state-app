@@ -3,12 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 export const inputSlice = createSlice({
   name: 'gasStateInput',
   initialState: {
-    value: '',
+    inputs: {
+      temperature: '',
+      pressure: '',
+    },
   },
   reducers: {
     updateInput: (state, action) => {
-      // console.log(action.payload);
-      state.value = action.payload;
+      state.inputs[action.payload.inputType] = action.payload.inputValue;
     },
   },
 });
