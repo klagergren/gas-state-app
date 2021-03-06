@@ -3,7 +3,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTemperature } from '../redux/slices/temperatureSlice';
+import { updateInput } from '../redux/slices/inputSlice';
 
 // import MenuItem from '@material-ui/core/MenuItem'
 
@@ -33,7 +33,7 @@ const GasStateInput = ({ gasPropertyType }) => {
 
   function handleChange(e) {
     console.log('hello', e.target.value);
-    dispatch(updateTemperature(e.target.value));
+    dispatch(updateInput(e.target.value));
   }
 
   return (

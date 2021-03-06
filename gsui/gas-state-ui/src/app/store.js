@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import temperatureReducer from '../redux/slices/temperatureSlice';
+import inputReducer from '../redux/slices/inputSlice';
 
 export default configureStore({
   reducer: {
-    temperature: temperatureReducer,
+    input: inputReducer,
   },
 });
