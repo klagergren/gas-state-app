@@ -43,7 +43,7 @@ const GasStateInput = ({ gasPropertyTypeId, gasPropertyTypeDisplay }) => {
     <div>
       <FormControl className={classes.formControl}>
         <TextField
-          id="outlined-basic"
+          id={gasPropertyTypeId}
           label={gasPropertyTypeDisplay}
           variant="outlined"
           value={inputValue}
