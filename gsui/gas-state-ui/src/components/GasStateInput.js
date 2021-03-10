@@ -26,9 +26,7 @@ const useStyles = makeStyles((theme) => ({
 const GasStateInput = ({ gasPropertyTypeId, gasPropertyTypeDisplay }) => {
   const classes = useStyles();
 
-  const inputValue = useSelector(
-    (state) => state.input.inputs[gasPropertyTypeId]
-  );
+  const inputValue = useSelector((state) => state.inputs[gasPropertyTypeId]);
   const dispatch = useDispatch();
 
   function handleChange(e) {
