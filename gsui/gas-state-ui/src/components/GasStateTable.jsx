@@ -61,7 +61,9 @@ function GasStateTable() {
           <TableHead>
             <TableRow>
               {rowHeaders.map((rowHeader) => (
-                <TableCell align="right">{rowHeader}</TableCell>
+                <TableCell align="right" key={rowHeader}>
+                  {rowHeader}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
