@@ -2,10 +2,7 @@ package gsa;
 
 import categories.GasProperty;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import io.GasStateInput;
 import io.GasStateOutput;
@@ -31,7 +28,8 @@ public class GscController {
 	}
 
 
-	@RequestMapping("/calculate")
+	@PostMapping("/calculate")
+	@CrossOrigin(origins = {"http://localhost:3000"})
 	public GasStateOutput calculateGasState(@RequestBody GasStateInput input)
 	{
 		//@RequestBody tells spring that a JSON representation of GasStateInput will be in the request payload, and it should

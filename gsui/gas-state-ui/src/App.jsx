@@ -1,11 +1,26 @@
-import './App.css';
 import Button from '@material-ui/core/Button';
-import Select from '@material-ui/core/Select';
-import Header from './components/Header';
+import axios from 'axios';
+import './App.css';
 import GasStateInput from './components/GasStateInput';
 import GasStateTable from './components/GasStateTable';
+import Header from './components/Header';
 
 function App() {
+  function submitGasStateRequest() {
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/calculate',
+      data: {
+        firstInputType: 'TEMPERATURE',
+        firstInputValue: 333,
+        secondInputType: 'PRESSURE',
+        secondInputValue: 0.00000969,
+      },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <div className="container">
       <Header />
@@ -25,7 +40,7 @@ function App() {
             // fontSize: 24
           }
         }
-        onClick={() => console.log('Hello')}
+        onClick={() => submitGasStateRequest()}
       >
         Calculate
       </Button>
