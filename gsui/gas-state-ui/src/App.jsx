@@ -1,9 +1,9 @@
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import './App.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import GasStateInput from './components/GasStateInput';
-import GasStateTable from './components/GasStateTable';
+import GasStateTable, { updateTableRows } from './components/GasStateTable';
 import Header from './components/Header';
 import { TEMPERATURE_PROP_ID, PRESSURE_PROP_ID } from './constants/constants';
 
@@ -22,7 +22,7 @@ function App() {
         secondInputValue: pressure,
       },
     })
-      .then((res) => console.log(res))
+      .then((res) => updateTableRows(res))
       .catch((err) => console.log(err));
   }
 

@@ -7,6 +7,17 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import { addRow } from '../redux/slices/tableSlice';
+import store from '../app/store';
+import {
+  DENSITY_PROP_ID,
+  ENERGY_PROP_ID,
+  ENTHALPY_PROP_ID,
+  ENTROPY_PROP_ID,
+  PRESSURE_PROP_ID,
+  SOUND_SPEED_PROP_ID,
+  TEMPERATURE_PROP_ID,
+} from '../constants/constants';
 
 const useStyles = makeStyles({
   table: {
@@ -52,6 +63,11 @@ const rowHeaders = [
   'Energy',
 ];
 
+export function updateTableRows(gasStateOutput) {
+  console.log(gasStateOutput);
+  store.dispatch(addRow(gasStateOutput));
+}
+
 function GasStateTable() {
   const classes = useStyles();
   return (
@@ -73,13 +89,13 @@ function GasStateTable() {
                 <TableCell component="th" scope="row" align="center">
                   {row.index}
                 </TableCell>
-                <TableCell align="right">{row.temp}</TableCell>
-                <TableCell align="right">{row.pressure}</TableCell>
-                <TableCell align="right">{row.density}</TableCell>
-                <TableCell align="right">{row.entropy}</TableCell>
-                <TableCell align="right">{row.enthalpy}</TableCell>
-                <TableCell align="right">{row.soundSpeed}</TableCell>
-                <TableCell align="right">{row.energy}</TableCell>
+                <TableCell align="right">{row[TEMPERATURE_PROP_ID]}</TableCell>
+                <TableCell align="right">{row[PRESSURE_PROP_ID]}</TableCell>
+                <TableCell align="right">{row[DENSITY_PROP_ID]}</TableCell>
+                <TableCell align="right">{row[ENTROPY_PROP_ID]}</TableCell>
+                <TableCell align="right">{row[ENTHALPY_PROP_ID]}</TableCell>
+                <TableCell align="right">{row[SOUND_SPEED_PROP_ID]}</TableCell>
+                <TableCell align="right">{row[ENERGY_PROP_ID]}</TableCell>
               </TableRow>
             ))}
           </TableBody>
