@@ -6,10 +6,18 @@ import GasStateInput from './components/GasStateInput';
 import GasStateTable, { updateTableRows } from './components/GasStateTable';
 import Header from './components/Header';
 import { TEMPERATURE_PROP_ID, PRESSURE_PROP_ID } from './constants/constants';
+import { addRow } from './redux/slices/tableSlice';
 
 function App() {
   const temperature = useSelector((state) => state.inputs[TEMPERATURE_PROP_ID]);
   const pressure = useSelector((state) => state.inputs[PRESSURE_PROP_ID]);
+
+  const dispatch = useDispatch();
+
+  function updateTableRows2(gasStateOutput2) {
+    console.log({ gasStateOutput2 });
+    dispatch(addRow(gasStateOutput2));
+  }
 
   function submitGasStateRequest() {
     axios({
@@ -22,7 +30,7 @@ function App() {
         secondInputValue: pressure,
       },
     })
-      .then((res) => updateTableRows(res))
+      .then((res) => updateTableRows2(res.data))
       .catch((err) => console.log(err));
   }
 

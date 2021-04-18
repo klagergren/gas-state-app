@@ -64,7 +64,7 @@ const rowHeaders = [
 ];
 
 export function updateTableRows(gasStateOutput) {
-  console.log(gasStateOutput);
+  console.log({ gasStateOutput });
   store.dispatch(addRow(gasStateOutput));
 }
 
