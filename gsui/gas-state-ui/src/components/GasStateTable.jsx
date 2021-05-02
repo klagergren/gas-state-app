@@ -7,6 +7,18 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import { useSelector } from 'react-redux';
+import { addRow } from '../redux/slices/tableSlice';
+import store from '../app/store';
+import {
+  DENSITY_CONSTANTS,
+  ENERGY_CONSTANTS,
+  ENTHALPY_CONSTANTS,
+  ENTROPY_CONSTANTS,
+  PRESSURE_CONSTANTS,
+  SOUND_SPEED_CONSTANTS,
+  TEMPERATURE_CONSTANTS,
+} from '../constants/constants';
 
 const useStyles = makeStyles({
   table: {
@@ -14,45 +26,24 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(
-  index,
-  temp,
-  pressure,
-  density,
-  entropy,
-  enthalpy,
-  soundSpeed,
-  energy
-) {
-  return {
-    index,
-    temp,
-    pressure,
-    density,
-    entropy,
-    enthalpy,
-    soundSpeed,
-    energy,
-  };
-}
-
-const rows = [
-  createData(1, 303, 50349, 0.2, 5, 21.3, 5, 6),
-  createData(2, 303, 50349, 0.2, 5, 21.3, 5, 6),
-];
-
 const rowHeaders = [
   'Index',
-  'Temperature',
-  'Pressure',
-  'Density',
-  'Entropy',
-  'Enthalpy',
-  'Sound Speed',
-  'Energy',
+  TEMPERATURE_CONSTANTS.display,
+  PRESSURE_CONSTANTS.display,
+  DENSITY_CONSTANTS.display,
+  ENTROPY_CONSTANTS.display,
+  ENTHALPY_CONSTANTS.display,
+  SOUND_SPEED_CONSTANTS.display,
+  ENERGY_CONSTANTS.display,
 ];
 
+export function updateTableRows(gasStateOutput) {
+  console.log({ gasStateOutput });
+  store.dispatch(addRow(gasStateOutput));
+}
+
 function GasStateTable() {
+  const rows = useSelector((state) => state.table.rows);
   const classes = useStyles();
   return (
     <div>
@@ -73,13 +64,21 @@ function GasStateTable() {
                 <TableCell component="th" scope="row" align="center">
                   {row.index}
                 </TableCell>
-                <TableCell align="right">{row.temp}</TableCell>
-                <TableCell align="right">{row.pressure}</TableCell>
-                <TableCell align="right">{row.density}</TableCell>
-                <TableCell align="right">{row.entropy}</TableCell>
-                <TableCell align="right">{row.enthalpy}</TableCell>
-                <TableCell align="right">{row.soundSpeed}</TableCell>
-                <TableCell align="right">{row.energy}</TableCell>
+                <TableCell align="right">
+                  {row[TEMPERATURE_CONSTANTS.id]}
+                </TableCell>
+                <TableCell align="right">
+                  {row[PRESSURE_CONSTANTS.id]}
+                </TableCell>
+                <TableCell align="right">{row[DENSITY_CONSTANTS.id]}</TableCell>
+                <TableCell align="right">{row[ENTROPY_CONSTANTS.id]}</TableCell>
+                <TableCell align="right">
+                  {row[ENTHALPY_CONSTANTS.id]}
+                </TableCell>
+                <TableCell align="right">
+                  {row[SOUND_SPEED_CONSTANTS.id]}
+                </TableCell>
+                <TableCell align="right">{row[ENERGY_CONSTANTS.id]}</TableCell>
               </TableRow>
             ))}
           </TableBody>
