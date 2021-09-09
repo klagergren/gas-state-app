@@ -29,7 +29,8 @@ public class GscController {
 
 
 	@PostMapping("/calculate")
-	@CrossOrigin(origins = {"http://localhost:3000"})
+//	@CrossOrigin(origins = {"http://localhost:3000"})
+	@CrossOrigin
 	public GasStateOutput calculateGasState(@RequestBody GasStateInput input)
 	{
 		//@RequestBody tells spring that a JSON representation of GasStateInput will be in the request payload, and it should

@@ -16,8 +16,8 @@ bootJar {
     archiveVersion =  '0.1.0'
 }
 
-sourceCompatibility = 1.15
-targetCompatibility = 1.15
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
 dependencies { 
 	implementation project(':gsc'),
