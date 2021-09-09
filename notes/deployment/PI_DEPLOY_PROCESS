@@ -1,0 +1,22 @@
+To deploy to the full app to the raspberry pi running ubuntu-server 20.04, do the following:
+1) Install java on the pi using sudo apt-get java
+2) Build the GSA jar file by running ./gradlew build at the root level of the repo
+3) SCP the jar file from gsa/build into the raspberry pi anywhere. 
+   -If ssh isn't set up on the Pi, install ssh by doing sudo apt-get install openssh-server
+4) Build the UI by cd'ing into the gsui directory and running npm run build
+5) SCP all contents of gsui/build/libs (including the index.html and all contents of the static
+   subdirectory) into the pi
+6) To serve the webpage with apache, you need to install apache-webserver by doing 
+   sudo apt-get install apache2. 
+7) Configure the server to serve your the app. 
+    a) Move all of the gusi/build/libs files into /var/www/html/gsa 
+    b) change ownership and permissions of /var/www/html/gsa
+       - sudo chown -R $user:$user /var/www/html/gsa
+       - sudo chmod 755 -R /var/www/html/gsa
+    c) Configure a virtual hosts file gsa.conf in /etc/apache2/sites-available
+       to point to that directory (template found under deployment/templates)
+    d) Create a link between the configuration file and /etc/apache2/sites-enabled by running the
+       command: sudo a2ensite gsa.conf
+    e) Reload apache webserver by doing sudo systemctl reload apache2
+    f) Your webpage is now accessible at http://<pi ip address>/gsa
+8) Run the back-end by navigating to wherever the gs jar file is and running java -jar <the jar file>
